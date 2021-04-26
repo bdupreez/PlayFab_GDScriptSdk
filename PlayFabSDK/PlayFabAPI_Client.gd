@@ -1306,7 +1306,10 @@ static func LinkFacebookInstantGamesId(dict_request, user_callback = null, dict_
 
 static func LinkGameCenterAccount(dict_request, user_callback = null, dict_header_extra = {}):
     """
-    Links the Game Center account associated with the provided Game Center ID to the user's PlayFab account
+    Links the Game Center account associated with the provided Game Center ID to the user's PlayFab account. Logging in with
+    a Game Center ID is insecure if you do not include the optional PublicKeyUrl, Salt, Signature, and Timestamp parameters
+    in this request. It is recommended you require these parameters on all Game Center calls by going to the Apple Add-ons
+    page in the PlayFab Game Manager and enabling the 'Require secure authentication only for this app' option.
     https://docs.microsoft.com/rest/api/playfab/client/account-management/linkgamecenteraccount
     """
 
@@ -1603,7 +1606,10 @@ static func LoginWithFacebookInstantGamesId(dict_request, user_callback = null, 
 static func LoginWithGameCenter(dict_request, user_callback = null, dict_header_extra = {}):
     """
     Signs the user in using an iOS Game Center player identifier, returning a session identifier that can subsequently be
-    used for API calls which require an authenticated user
+    used for API calls which require an authenticated user. Logging in with a Game Center ID is insecure if you do not
+    include the optional PublicKeyUrl, Salt, Signature, and Timestamp parameters in this request. It is recommended you
+    require these parameters on all Game Center calls by going to the Apple Add-ons page in the PlayFab Game Manager and
+    enabling the 'Require secure authentication only for this app' option.
     https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithgamecenter
     """
 
